@@ -231,25 +231,11 @@ footer{background:var(--bg);border-top:1px solid rgba(0,245,255,.1);padding:40px
 .dot-yellow{background:#FFD700;box-shadow:0 0 8px #FFD700;}
 .dot-red{background:var(--pink);box-shadow:0 0 8px var(--pink);}
 
-/* ===== FIX CLICK BLOCKING LAYERS ===== */
-
-/* Allow clicking through visual overlays */
-#particle-canvas,
-.scanline,
-#hero-canvas,
-#cursor,
-#cursor-ring{
+#particle-canvas, .scanline, #hero-canvas, #cursor, #cursor-ring {
   pointer-events: none !important;
 }
 
-/* Ensure interactive UI elements stay clickable */
-nav,
-section,
-.team-card,
-.team-links,
-.team-link,
-button,
-a{
+nav, section, .team-card, .team-links, .team-link, button, a {
   position: relative;
   z-index: 10;
 }
@@ -296,7 +282,7 @@ a{
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <div class="hero-badge">// SYSTEM ACTIVE — THREAT LEVEL: HIGH //</div>
+    <!-- <div class="hero-badge"></div> -->
     <h1 class="hero-title">Cyber Risk Intelligence<br/>&amp; Adaptive Defense<br/>Platform</h1>
     <p class="hero-sub"><span>AI-powered</span> detection, risk scoring, and adaptive cyber defense — monitoring your entire digital surface in real time.</p>
     <div class="hero-btns">
@@ -457,11 +443,12 @@ a{
     </div>
     <div class="dash-body">
       <div class="dash-widget">
-        <div class="widget-title">Threat Distribution</div>
-        <div class="mini-bar"><span class="mini-label">Malware</span><div class="mini-track"><div class="mini-fill" style="width:0%;background:linear-gradient(90deg,var(--pink),#FF6400);" data-fill="78"></div></div><span class="mini-val">78%</span></div>
-        <div class="mini-bar"><span class="mini-label">Phishing</span><div class="mini-track"><div class="mini-fill" style="width:0%;background:linear-gradient(90deg,var(--cyan),var(--purple));" data-fill="62"></div></div><span class="mini-val">62%</span></div>
-        <div class="mini-bar"><span class="mini-label">Insider</span><div class="mini-track"><div class="mini-fill" style="width:0%;background:linear-gradient(90deg,var(--purple),var(--pink));" data-fill="45"></div></div><span class="mini-val">45%</span></div>
-        <div class="mini-bar"><span class="mini-label">DDoS</span><div class="mini-track"><div class="mini-fill" style="width:0%;background:linear-gradient(90deg,#FFD700,#FF6400);" data-fill="31"></div></div><span class="mini-val">31%</span></div>
+        <div class="widget-title">Alert Distribution — Live</div>
+        <div class="mini-bar"><span class="mini-label">Bulk Download</span><div class="mini-track"><div class="mini-fill" id="td-bulk" style="width:0%;background:linear-gradient(90deg,var(--pink),#FF6400);transition:width 1s ease;"></div></div><span class="mini-val" id="td-bulk-val">—</span></div>
+        <div class="mini-bar"><span class="mini-label">Lateral Move</span><div class="mini-track"><div class="mini-fill" id="td-lateral" style="width:0%;background:linear-gradient(90deg,var(--cyan),var(--purple));transition:width 1s ease;"></div></div><span class="mini-val" id="td-lateral-val">—</span></div>
+        <div class="mini-bar"><span class="mini-label">API Abuse</span><div class="mini-track"><div class="mini-fill" id="td-api" style="width:0%;background:linear-gradient(90deg,var(--purple),var(--pink));transition:width 1s ease;"></div></div><span class="mini-val" id="td-api-val">—</span></div>
+        <div class="mini-bar"><span class="mini-label">Off-Hours</span><div class="mini-track"><div class="mini-fill" id="td-offhours" style="width:0%;background:linear-gradient(90deg,#FFD700,#FF6400);transition:width 1s ease;"></div></div><span class="mini-val" id="td-offhours-val">—</span></div>
+        <div class="mini-bar"><span class="mini-label">New Device</span><div class="mini-track"><div class="mini-fill" id="td-device" style="width:0%;background:linear-gradient(90deg,#00FF88,var(--cyan));transition:width 1s ease;"></div></div><span class="mini-val" id="td-device-val">—</span></div>
       </div>
       <div class="dash-widget">
         <div class="widget-title">Anomaly Radar</div>
@@ -520,10 +507,9 @@ a{
   </div>
   <div class="team-grid" style="max-width:600px;margin:0 auto;">
     <div class="team-card fade-up"><div class="team-avatar">AV</div><div class="team-name">Aishwary Vansh</div><div class="team-role">Full Stack Developer &amp; System Architect</div><div class="team-links"><a href="https://www.linkedin.com/in/aishwary-vansh/" class="team-link" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/aishwary-vansh" class="team-link" target="_blank" rel="noopener noreferrer">GitHub</a></div></div>
-    <div class="team-card fade-up"><div class="team-avatar">SS</div><div class="team-name">Sujai Shukla</div><div class="team-role">Machine Learning &amp; Cyber Security Engineer</div><div class="team-links"><a href="https://www.linkedin.com/in/sujai-shukla-74a3413b6" class="team-link" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/Sujaicodes" class="team-link" target="_blank" rel="noopener noreferrer">GitHub</a></div></div>
-</div>
+    <div class="team-card fade-up"><div class="team-avatar">SS</div><div class="team-name">Sujai Shukla</div><div class="team-role">Machine Learning Engineer &amp; Threat Analytics Specialist</div><div class="team-links"><a href="https://www.linkedin.com/in/sujai-shukla-74a3413b6" class="team-link" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/Sujaicodes" class="team-link" target="_blank" rel="noopener noreferrer">GitHub</a></div></div>
+  </div>
 </section>
-
 
 <!-- CTA -->
 <section id="cta">
@@ -539,7 +525,7 @@ a{
 
 <footer>
   <div class="footer-logo">CRIDAP</div>
-  <p class="footer-text">Cyber Risk Intelligence &amp; Adaptive Defense Platform <br/>
+  <p class="footer-text">Cyber Risk Intelligence &amp; Adaptive Defense Platform · Built for Hackathon 2025<br/>
   <span style="color:var(--cyan);">Protecting digital infrastructure through AI-powered intelligence.</span></p>
 </footer>
 
@@ -722,6 +708,46 @@ async function loadAPIData() {
       </div>`;
     });
     logEl.innerHTML = logLines.join('');
+
+    // ── THREAT DISTRIBUTION (real alert counts) ──
+    const ruleCount = {'PRIV-001':0,'PRIV-002':0,'PRIV-003':0,'PRIV-004':0,'PRIV-005':0};
+    privAlerts.forEach(a => { if(ruleCount[a.rule_id]!==undefined) ruleCount[a.rule_id]++; });
+    const maxCount = Math.max(...Object.values(ruleCount), 1);
+    const tdMap = [
+      ['td-bulk',    ruleCount['PRIV-001']],
+      ['td-lateral', ruleCount['PRIV-005']],
+      ['td-api',     ruleCount['PRIV-004']],
+      ['td-offhours',ruleCount['PRIV-002']],
+      ['td-device',  ruleCount['PRIV-003']],
+    ];
+    tdMap.forEach(([id, count]) => {
+      const pct = Math.round((count / maxCount) * 100);
+      const bar = document.getElementById(id);
+      const val = document.getElementById(id + '-val');
+      if(bar) setTimeout(() => { bar.style.width = pct + '%'; }, 300);
+      if(val) val.textContent = count + ' alerts';
+    });
+
+    // ── RADAR — real risk scores as positioned blips ──
+    const radarScores = scores.map((s,i) => ({
+      score: s.score,
+      entity: s.entity,
+      angle: (i / scores.length) * Math.PI * 2,
+      dist: Math.max(0.15, Math.min(0.95, s.score / 100 * 0.9 + 0.1)),
+      severity: s.risk_level
+    }));
+    window._radarRealBlips = radarScores;
+
+    // ── LIVE LOG POOL — seed with real events ──
+    _realLogPool = privAlerts.slice();
+
+    // ── ATTACK MAP — real entities as source nodes ──
+    window._realEntities = scores.map((s, i) => ({
+      x: 0.15 + (i * 0.22),
+      y: 0.3 + (i % 2) * 0.25,
+      name: s.entity,
+      score: s.score
+    }));
 
     // Re-apply scroll observer to new elements
     document.querySelectorAll('.risk-card, .alert-item').forEach(el => observer.observe(el));
@@ -949,23 +975,44 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   resize();
   const cx2=c.width/2,cy2=c.height/2,r=Math.min(cx2,cy2)-10;
   let angle=0;
-  const blips=[];for(let i=0;i<8;i++){blips.push({a:Math.random()*Math.PI*2,d:Math.random()*.8+.1,life:0,maxLife:120});}
   function draw(){
     ctx.clearRect(0,0,c.width,c.height);
+    // Rings
     [.2,.4,.6,.8,1].forEach(f=>{ctx.beginPath();ctx.arc(cx2,cy2,r*f,0,Math.PI*2);ctx.strokeStyle=`rgba(0,245,255,${.08+f*.04})`;ctx.lineWidth=1;ctx.stroke();});
     ctx.strokeStyle='rgba(0,245,255,.1)';
     ctx.beginPath();ctx.moveTo(cx2,cy2-r);ctx.lineTo(cx2,cy2+r);ctx.stroke();
     ctx.beginPath();ctx.moveTo(cx2-r,cy2);ctx.lineTo(cx2+r,cy2);ctx.stroke();
+    // Sweep
     ctx.save();ctx.translate(cx2,cy2);
     for(let i=0;i<40;i++){const a2=angle-i*.06;const opacity=Math.max(0,(40-i)/40)*.3;ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,r,a2-.03,a2+.03);ctx.closePath();ctx.fillStyle=`rgba(0,245,255,${opacity})`;ctx.fill();}
     ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(angle)*r,Math.sin(angle)*r);ctx.strokeStyle='rgba(0,245,255,.8)';ctx.lineWidth=1.5;ctx.stroke();
     ctx.restore();
-    blips.forEach(b=>{
-      b.life++;if(b.life>b.maxLife){b.a=Math.random()*Math.PI*2;b.d=Math.random()*.8+.1;b.life=0;}
-      const bx=cx2+Math.cos(b.a)*r*b.d,by=cy2+Math.sin(b.a)*r*b.d;
-      const pulse=Math.sin(b.life*.15)*0.5+0.5;
-      ctx.beginPath();ctx.arc(bx,by,3+pulse*2,0,Math.PI*2);ctx.fillStyle=`rgba(255,60,172,${.5+pulse*.5})`;ctx.fill();
+    // Real entity blips from API
+    const blips = window._radarRealBlips || [];
+    blips.forEach((b,i)=>{
+      const bx=cx2+Math.cos(b.angle)*r*b.dist;
+      const by=cy2+Math.sin(b.angle)*r*b.dist;
+      const pulse=Math.sin(Date.now()*.002+i)*0.5+0.5;
+      const color = b.score>=60?'#FF3CAC': b.score>=35?'#FFD700':'#00F5FF';
+      const glowColor = b.score>=60?'rgba(255,60,172,':'rgba(0,245,255,';
+      ctx.beginPath();ctx.arc(bx,by,4+pulse*2,0,Math.PI*2);
+      ctx.fillStyle=color;ctx.fill();
+      // Glow ring
+      ctx.beginPath();ctx.arc(bx,by,8+pulse*3,0,Math.PI*2);
+      ctx.strokeStyle=glowColor+(0.3+pulse*0.3)+')';ctx.lineWidth=1;ctx.stroke();
+      // Entity name label
+      ctx.fillStyle='rgba(0,245,255,.7)';ctx.font='8px Share Tech Mono';
+      ctx.fillText(b.entity.split('.')[0].toUpperCase(),bx+8,by-2);
     });
+    // Fallback random blips if no real data yet
+    if(blips.length===0){
+      for(let i=0;i<6;i++){
+        const a=i/6*Math.PI*2,d=0.3+i*0.1;
+        const bx=cx2+Math.cos(a)*r*d,by=cy2+Math.sin(a)*r*d;
+        const pulse=Math.sin(Date.now()*.002+i)*0.5+0.5;
+        ctx.beginPath();ctx.arc(bx,by,3+pulse*2,0,Math.PI*2);ctx.fillStyle=`rgba(255,60,172,${.4+pulse*.4})`;ctx.fill();
+      }
+    }
     angle+=.03;requestAnimationFrame(draw);
   }
   draw();window.addEventListener('resize',()=>resize());
@@ -979,28 +1026,54 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   const ctx=c.getContext('2d');
   function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight||200;}
   resize();
+  // Fixed world city positions
   const cities=[{x:.2,y:.3},{x:.15,y:.55},{x:.48,y:.25},{x:.52,y:.28},{x:.55,y:.22},{x:.72,y:.3},{x:.8,y:.35},{x:.85,y:.55},{x:.6,y:.6},{x:.35,y:.35},{x:.25,y:.28},{x:.18,y:.4}];
   const attacks=[];
   function newAttack(){
-    const s=cities[Math.floor(Math.random()*cities.length)];let t=cities[Math.floor(Math.random()*cities.length)];
-    while(t===s)t=cities[Math.floor(Math.random()*cities.length)];
-    attacks.push({sx:s.x,sy:s.y,tx:t.x,ty:t.y,p:0,hostile:Math.random()>.4});
+    // Use real entity positions as attack targets when available
+    const realEntities = window._realEntities || [];
+    const targets = realEntities.length > 0 ? realEntities : cities;
+    const s=cities[Math.floor(Math.random()*cities.length)];
+    const t=targets[Math.floor(Math.random()*targets.length)];
+    const isRealTarget = realEntities.length > 0 && targets===realEntities;
+    attacks.push({
+      sx:s.x, sy:s.y,
+      tx:isRealTarget ? t.x : t.x,
+      ty:isRealTarget ? t.y : t.y,
+      p:0,
+      hostile: isRealTarget ? t.score > 20 : Math.random()>.4,
+      label: isRealTarget ? t.name.split('.')[0] : ''
+    });
   }
   for(let i=0;i<4;i++)newAttack();setInterval(newAttack,1200);
   function draw(){
     ctx.clearRect(0,0,c.width,c.height);const W=c.width,H=c.height;
+    // Grid
     ctx.strokeStyle='rgba(0,245,255,.04)';ctx.lineWidth=1;
     for(let x=0;x<W;x+=W/8){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
     for(let y=0;y<H;y+=H/4){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    // City nodes
     cities.forEach(city=>{
       const cx2=city.x*W,cy2=city.y*H;
       ctx.beginPath();ctx.arc(cx2,cy2,3,0,Math.PI*2);ctx.fillStyle='rgba(0,245,255,.8)';ctx.fill();
-      ctx.beginPath();ctx.arc(cx2,cy2,6+Math.random()*2,0,Math.PI*2);ctx.strokeStyle='rgba(0,245,255,.2)';ctx.lineWidth=1;ctx.stroke();
     });
+    // Real entity nodes — highlighted
+    (window._realEntities||[]).forEach(e=>{
+      const ex=e.x*W, ey=e.y*H;
+      const color = e.score>=35?'#FF3CAC':'#00F5FF';
+      const pulse=Math.sin(Date.now()*.002+e.score)*0.4+0.6;
+      ctx.beginPath();ctx.arc(ex,ey,5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();
+      ctx.beginPath();ctx.arc(ex,ey,9+pulse*3,0,Math.PI*2);
+      ctx.strokeStyle=e.score>=35?'rgba(255,60,172,.4)':'rgba(0,245,255,.3)';ctx.lineWidth=1.5;ctx.stroke();
+      ctx.fillStyle=color;ctx.font='8px Share Tech Mono';
+      ctx.fillText(e.name.split('.')[0].toUpperCase(),ex+8,ey-2);
+    });
+    // Attack lines
     attacks.forEach((a,i)=>{
-      a.p+=.008;const cx2=a.sx*W+(a.tx-a.sx)*W*a.p,cy2=a.sy*H+(a.ty-a.sy)*H*a.p;
+      a.p+=.008;
+      const cx2=a.sx*W+(a.tx-a.sx)*W*a.p,cy2=a.sy*H+(a.ty-a.sy)*H*a.p;
       ctx.beginPath();ctx.moveTo(a.sx*W,a.sy*H);ctx.lineTo(cx2,cy2);
-      ctx.strokeStyle=a.hostile?'rgba(255,60,172,.6)':'rgba(0,245,255,.4)';ctx.lineWidth=1;ctx.stroke();
+      ctx.strokeStyle=a.hostile?'rgba(255,60,172,.7)':'rgba(0,245,255,.4)';ctx.lineWidth=1.5;ctx.stroke();
       ctx.beginPath();ctx.arc(cx2,cy2,3,0,Math.PI*2);ctx.fillStyle=a.hostile?'#FF3CAC':'#00F5FF';ctx.fill();
       if(a.p>=1)attacks.splice(i,1);
     });
@@ -1015,7 +1088,10 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
 function updateClock(){document.getElementById('dash-time').textContent=new Date().toISOString().slice(11,19)+' UTC';}
 setInterval(updateClock,1000);updateClock();
 
-const logEvents=[
+// Real log entries seeded from API — populated in loadAPIData()
+// Simulated live feed adds new entries every 3s mixed with real events
+let _realLogPool = [];
+const _simEvents=[
   ['BRUTE_FORCE_AUTH','BLOCKED','#00FF88'],['SQL_INJECTION','BLOCKED','#00FF88'],
   ['PRIV_ESCALATION','ALERT','#FF3CAC'],['DATA_EXFIL_ATTEMPT','CRITICAL','#FF3CAC'],
   ['PORT_SCAN','BLOCKED','#00FF88'],['ANOMALY_DETECTED','REVIEW','#FFD700'],
@@ -1023,11 +1099,20 @@ const logEvents=[
 ];
 function addLogLine(){
   const logEl=document.getElementById('threat-log');
-  const evt=logEvents[Math.floor(Math.random()*logEvents.length)];
-  const ip=`${Math.floor(Math.random()*250)+2}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}`;
   const time=new Date().toISOString().slice(11,19);
-  const div=document.createElement('div');div.className='log-line';
-  div.innerHTML=`<span class="log-time">${time}</span><span class="log-ip">${ip}</span><span class="log-evt">${evt[0]}</span><span style="color:${evt[2]};margin-left:auto;">${evt[1]}</span>`;
+  let html='';
+  // 50% chance to show a real event from the pool
+  if(_realLogPool.length>0 && Math.random()>0.5){
+    const e=_realLogPool[Math.floor(Math.random()*_realLogPool.length)];
+    const evtMap={'PRIV-001':'BULK_DOWNLOAD','PRIV-002':'OFF_HOURS_ACCESS','PRIV-003':'NEW_DEVICE_ALERT','PRIV-004':'API_EXTRACTION','PRIV-005':'LATERAL_MOVE'};
+    const sevColor={'CRITICAL':'#FF3CAC','HIGH':'#FF6400','MEDIUM':'#FFD700'}[e.severity]||'#00FF88';
+    html=`<span class="log-time">${time}</span><span class="log-ip" style="color:#FF3CAC;">${e.entity}</span><span class="log-evt">${evtMap[e.rule_id]||'ANOMALY'}</span><span style="color:${sevColor};margin-left:auto;">${e.severity}</span>`;
+  } else {
+    const evt=_simEvents[Math.floor(Math.random()*_simEvents.length)];
+    const ip=`${Math.floor(Math.random()*250)+2}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}`;
+    html=`<span class="log-time">${time}</span><span class="log-ip">${ip}</span><span class="log-evt">${evt[0]}</span><span style="color:${evt[2]};margin-left:auto;">${evt[1]}</span>`;
+  }
+  const div=document.createElement('div');div.className='log-line';div.innerHTML=html;
   logEl.insertBefore(div,logEl.firstChild);
   if(logEl.children.length>8)logEl.removeChild(logEl.lastChild);
 }
