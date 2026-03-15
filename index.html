@@ -41,7 +41,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .nav-cta{background:transparent;border:1px solid var(--cyan);color:var(--cyan);padding:8px 20px;font-family:'Orbitron',sans-serif;font-size:.75rem;letter-spacing:2px;cursor:pointer;transition:all .3s;text-transform:uppercase;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);}
 .nav-cta:hover{background:var(--cyan);color:var(--bg);box-shadow:var(--glow-cyan);}
 
-/* API STATUS BAR */
 #api-status-bar{
   position:fixed;bottom:0;left:0;right:0;z-index:2000;
   display:flex;align-items:center;justify-content:space-between;
@@ -192,6 +191,8 @@ section{padding:100px 40px;}
 .tech-item{background:rgba(255,255,255,.03);border:1px solid rgba(0,245,255,.1);border-radius:12px;padding:20px;text-align:center;transition:all .4s;}
 .tech-item:hover{border-color:var(--cyan);background:rgba(0,245,255,.06);transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,245,255,.15);}
 .tech-icon{font-size:2rem;margin-bottom:10px;display:block;}
+.tech-icon-img{width:40px;height:40px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;}
+.tech-icon-img img{width:40px;height:40px;object-fit:contain;}
 .tech-name{font-family:'Orbitron',sans-serif;font-size:.7rem;color:var(--text-dim);letter-spacing:1.5px;}
 .tech-category{font-size:.65rem;color:var(--cyan);margin-top:4px;letter-spacing:1px;}
 #team{background:var(--bg);}
@@ -231,10 +232,12 @@ footer{background:var(--bg);border-top:1px solid rgba(0,245,255,.1);padding:40px
 .dot-yellow{background:#FFD700;box-shadow:0 0 8px #FFD700;}
 .dot-red{background:var(--pink);box-shadow:0 0 8px var(--pink);}
 
+/* Block all visual overlays from intercepting clicks */
 #particle-canvas, .scanline, #hero-canvas, #cursor, #cursor-ring {
   pointer-events: none !important;
 }
 
+/* Ensure all interactive elements stay on top and clickable */
 nav, section, .team-card, .team-links, .team-link, button, a {
   position: relative;
   z-index: 10;
@@ -247,7 +250,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
 <div id="cursor-ring"></div>
 <canvas id="particle-canvas"></canvas>
 
-<!-- API STATUS BAR -->
+
 <div id="api-status-bar">
   <div class="api-status-left">
     <div class="api-dot loading" id="api-dot"></div>
@@ -278,11 +281,11 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   <div class="side-dot"></div><div class="side-dot"></div>
 </div>
 
-<!-- HERO -->
+
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <!-- <div class="hero-badge"></div> -->
+    <div class="hero-badge"></div>
     <h1 class="hero-title">Cyber Risk Intelligence<br/>&amp; Adaptive Defense<br/>Platform</h1>
     <p class="hero-sub"><span>AI-powered</span> detection, risk scoring, and adaptive cyber defense — monitoring your entire digital surface in real time.</p>
     <div class="hero-btns">
@@ -299,7 +302,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   <div class="scroll-hint"><div class="scroll-arrow"></div><span>Scroll</span></div>
 </section>
 
-<!-- PROBLEM -->
+
 <section id="problem">
   <div class="grid-bg"></div>
   <div class="section-header fade-up">
@@ -321,7 +324,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   </div>
 </section>
 
-<!-- ARCHITECTURE -->
+
 <section id="architecture">
   <div class="section-header fade-up">
     <div class="section-tag"></div>
@@ -347,7 +350,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   </div>
 </section>
 
-<!-- AI ENGINE -->
+
 <section id="ai-engine">
   <div class="grid-bg"></div>
   <div class="section-header fade-up">
@@ -364,7 +367,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   </div>
 </section>
 
-<!-- ATTACK CHAIN -->
+
 <section id="attack-chain">
   <div class="section-header fade-up">
     <div class="section-tag"></div>
@@ -372,7 +375,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
     <p class="section-sub">Real-time visualization of adversary kill chains mapped to MITRE ATT&CK framework.</p>
   </div>
   <div class="kill-chain" id="kill-chain-container">
-    <!-- Populated by API -->
+    
     <div class="kc-step fade-up"><div class="kc-num">01</div><div class="kc-content"><div class="kc-title">📧 Phishing Email Delivery</div><div class="kc-desc">Spear-phishing email sent to finance team. Malicious attachment triggers macro execution. T1566 — MITRE ATT&CK Initial Access.</div></div></div>
     <div class="kc-step fade-up"><div class="kc-num">02</div><div class="kc-content"><div class="kc-title">🔑 Credential Login Anomaly</div><div class="kc-desc">Compromised credentials used from foreign IP. Login at 03:14 UTC — 4 standard deviations outside user baseline. Risk score elevated to 87.</div></div></div>
     <div class="kc-step fade-up"><div class="kc-num">03</div><div class="kc-content"><div class="kc-title">⬆️ Privilege Escalation</div><div class="kc-desc">Unauthorized attempt to escalate to Domain Admin. Token impersonation detected. T1078 — Valid Accounts abuse. Lateral movement to 3 hosts in 6 minutes.</div></div></div>
@@ -380,7 +383,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   </div>
 </section>
 
-<!-- RISK SCORING -->
+
 <section id="risk-scoring">
   <div class="grid-bg"></div>
   <div class="section-header fade-up">
@@ -395,11 +398,11 @@ nav, section, .team-card, .team-links, .team-link, button, a {
     <div class="status-pill"><span class="dot dot-green"></span>LIVE DATA</div>
   </div>
   <div class="risk-grid" id="risk-grid-container">
-    <!-- Populated dynamically by API -->
+    
   </div>
 </section>
 
-<!-- PRIVACY MONITORING -->
+
 <section id="privacy">
   <div class="section-header fade-up">
     <div class="section-tag"></div>
@@ -407,11 +410,11 @@ nav, section, .team-card, .team-links, .team-link, button, a {
     <p class="section-sub">Active surveillance of data access patterns, detecting policy violations and potential exfiltration.</p>
   </div>
   <div class="alert-list" id="privacy-alert-list">
-    <!-- Populated dynamically by API -->
+    
   </div>
 </section>
 
-<!-- ADAPTIVE DEFENSE -->
+
 <section id="defense">
   <div class="grid-bg"></div>
   <div class="section-header fade-up">
@@ -429,7 +432,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   </div>
 </section>
 
-<!-- SOC DASHBOARD -->
+
 <section id="dashboard">
   <div class="section-header fade-up">
     <div class="section-tag"></div>
@@ -459,6 +462,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
         <div id="soc-risk-summary" style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
           <div style="display:flex;justify-content:space-between;padding:8px;background:rgba(255,60,172,.08);border-radius:6px;border:1px solid rgba(255,60,172,.2);"><span style="font-size:.78rem;color:var(--text-dim);">Critical</span><span style="font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--pink);" id="soc-critical">—</span></div>
           <div style="display:flex;justify-content:space-between;padding:8px;background:rgba(255,215,0,.06);border-radius:6px;border:1px solid rgba(255,215,0,.2);"><span style="font-size:.78rem;color:var(--text-dim);">High</span><span style="font-family:'Share Tech Mono',monospace;font-size:.78rem;color:#FFD700;" id="soc-high">—</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:rgba(227,179,65,.06);border-radius:6px;border:1px solid rgba(227,179,65,.2);"><span style="font-size:.78rem;color:var(--text-dim);">Medium</span><span style="font-family:'Share Tech Mono',monospace;font-size:.78rem;color:#EF9F27;" id="soc-medium">—</span></div>
           <div style="display:flex;justify-content:space-between;padding:8px;background:rgba(0,255,136,.05);border-radius:6px;border:1px solid rgba(0,255,136,.15);"><span style="font-size:.78rem;color:var(--text-dim);">Low / Secure</span><span style="font-family:'Share Tech Mono',monospace;font-size:.78rem;color:#00FF88;" id="soc-secure">—</span></div>
           <div style="display:flex;justify-content:space-between;padding:8px;background:rgba(0,245,255,.05);border-radius:6px;"><span style="font-size:.78rem;color:var(--text-dim);">Total Events</span><span style="font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--cyan);" id="soc-events">—</span></div>
           <div style="display:flex;justify-content:space-between;padding:8px;background:rgba(0,245,255,.05);border-radius:6px;"><span style="font-size:.78rem;color:var(--text-dim);">Privacy Alerts</span><span style="font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--pink);" id="soc-privacy">—</span></div>
@@ -478,7 +482,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   </div>
 </section>
 
-<!-- TECH STACK -->
+
 <section id="techstack">
   <div class="grid-bg"></div>
   <div class="section-header fade-up">
@@ -487,18 +491,62 @@ nav, section, .team-card, .team-links, .team-link, button, a {
     <p class="section-sub">Built on battle-tested, scalable, and enterprise-grade technologies.</p>
   </div>
   <div class="tech-grid">
-    <div class="tech-item fade-up"><span class="tech-icon">🐍</span><div class="tech-name">Python</div><div class="tech-category">Backend / AI</div></div>
-    <div class="tech-item fade-up"><span class="tech-icon">⚡</span><div class="tech-name">FastAPI</div><div class="tech-category">REST API</div></div>
-    <div class="tech-item fade-up"><span class="tech-icon">🔬</span><div class="tech-name">Scikit-learn</div><div class="tech-category">ML</div></div>
-    <div class="tech-item fade-up"><span class="tech-icon">🤖</span><div class="tech-name">Isolation Forest</div><div class="tech-category">Anomaly Detection</div></div>
-    <div class="tech-item fade-up"><span class="tech-icon">🔷</span><div class="tech-name">Three.js</div><div class="tech-category">3D / WebGL</div></div>
-    <div class="tech-item fade-up"><span class="tech-icon">📊</span><div class="tech-name">MITRE ATT&CK</div><div class="tech-category">Framework</div></div>
-    <div class="tech-item fade-up"><span class="tech-icon">🐳</span><div class="tech-name">Docker</div><div class="tech-category">Infrastructure</div></div>
-    <div class="tech-item fade-up"><span class="tech-icon">📈</span><div class="tech-name">Loguru</div><div class="tech-category">Observability</div></div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" alt="Python"/></div>
+      <div class="tech-name">Python</div><div class="tech-category">Backend / AI</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40" height="40" alt="FastAPI"/></div>
+      <div class="tech-name">FastAPI</div><div class="tech-category">REST API</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" width="40" height="40" alt="Scikit-learn"/></div>
+      <div class="tech-name">Scikit-learn</div><div class="tech-category">ML</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(0,245,255,.1);border-radius:8px;border:1px solid rgba(0,245,255,.3);margin:0 auto 12px;">
+        <span style="font-family:'Orbitron',sans-serif;font-size:9px;color:var(--cyan);text-align:center;line-height:1.2;">ISO<br/>FOREST</span>
+      </div>
+      <div class="tech-name">Isolation Forest</div><div class="tech-category">Anomaly Detection</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" width="40" height="40" alt="Three.js" style="filter:invert(1)"/></div>
+      <div class="tech-name">Three.js</div><div class="tech-category">3D / WebGL</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,60,172,.1);border-radius:8px;border:1px solid rgba(255,60,172,.3);margin:0 auto 12px;">
+        <span style="font-family:'Orbitron',sans-serif;font-size:8px;color:var(--pink);text-align:center;line-height:1.2;">MITRE<br/>ATT&CK</span>
+      </div>
+      <div class="tech-name">MITRE ATT&CK</div><div class="tech-category">Framework</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" height="40" alt="Docker"/></div>
+      <div class="tech-name">Docker</div><div class="tech-category">Infrastructure</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="40" height="40" alt="NumPy"/></div>
+      <div class="tech-name">NumPy / Pandas</div><div class="tech-category">Data Processing</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40" alt="PostgreSQL"/></div>
+      <div class="tech-name">PostgreSQL</div><div class="tech-category">Database</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" width="40" height="40" alt="Pytest"/></div>
+      <div class="tech-name">Pytest</div><div class="tech-category">Testing</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40" alt="GitHub" style="filter:invert(1)"/></div>
+      <div class="tech-name">GitHub</div><div class="tech-category">Version Control</div>
+    </div>
+    <div class="tech-item fade-up">
+      <div class="tech-icon-img"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" height="40" alt="Linux"/></div>
+      <div class="tech-name">Linux / Ubuntu</div><div class="tech-category">OS / CI Runner</div>
+    </div>
   </div>
 </section>
 
-<!-- TEAM -->
+
 <section id="team">
   <div class="section-header fade-up">
     <div class="section-tag"></div>
@@ -511,7 +559,7 @@ nav, section, .team-card, .team-links, .team-link, button, a {
   </div>
 </section>
 
-<!-- CTA -->
+
 <section id="cta">
   <div class="cta-glow"></div>
   <div class="grid-bg"></div>
@@ -530,9 +578,6 @@ nav, section, .team-card, .team-links, .team-link, button, a {
 </footer>
 
 <script>
-// ════════════════════════════════════════════
-//  BACKEND API INTEGRATION
-// ════════════════════════════════════════════
 const API = 'http://127.0.0.1:8000';
 
 const ALERT_ICONS = {
@@ -642,47 +687,43 @@ async function loadAPIData() {
       fetch(API + '/privacy-alerts').then(r => r.json()),
     ]);
 
-    // ── STATUS BAR ──
     setApiStatus('ok', 'API Connected · http://127.0.0.1:8000 · Live data active');
     document.getElementById('api-last-update').textContent =
       'Last updated: ' + new Date().toLocaleTimeString();
 
-    // ── HERO COUNTERS ──
     animCount(document.getElementById('count1'), summary.total_events, '', 1800);
     animCount(document.getElementById('count2'), summary.anomalies_detected, '', 1500);
     animCount(document.getElementById('count3'), summary.privacy_alerts, '', 2000);
     animCount(document.getElementById('count4'), scores.length, '', 1200);
 
-    // ── SOC RISK SUMMARY WIDGET ──
-    const critCount = scores.filter(s => s.risk_level === 'CRITICAL').length;
-    const highCount = scores.filter(s => s.risk_level === 'HIGH').length;
-    const lowCount  = scores.filter(s => ['LOW','MEDIUM'].includes(s.risk_level)).length;
+    const critCount   = scores.filter(s => s.risk_level === 'CRITICAL').length;
+    const highCount   = scores.filter(s => s.risk_level === 'HIGH').length;
+    const medCount    = scores.filter(s => s.risk_level === 'MEDIUM').length;
+    const lowCount    = scores.filter(s => s.risk_level === 'LOW').length;
     document.getElementById('soc-critical').textContent = critCount + ' entities';
     document.getElementById('soc-high').textContent = highCount + ' entities';
     document.getElementById('soc-secure').textContent = lowCount + ' entities';
+    const socMed = document.getElementById('soc-medium');
+    if(socMed) socMed.textContent = medCount + ' entities';
     document.getElementById('soc-events').textContent = summary.total_events;
     document.getElementById('soc-privacy').textContent = summary.privacy_alerts + ' alerts';
 
-    // ── RISK STATUS BAR ──
     document.getElementById('status-critical').textContent =
-      `CRITICAL: ${critCount} entities`;
+      `CRITICAL: ${critCount} · HIGH: ${highCount}`;
     document.getElementById('status-medium').textContent =
-      `HIGH/MEDIUM: ${highCount} entities`;
+      `MEDIUM: ${medCount} entities`;
     document.getElementById('status-secure').textContent =
-      `SECURE: ${lowCount} entities`;
+      `SECURE (LOW): ${lowCount} entities`;
 
-    // ── RISK SCORING GAUGES ──
     const riskContainer = document.getElementById('risk-grid-container');
     riskContainer.innerHTML = scores.map((s, i) =>
       renderRiskGauge(s.entity, s.score, s.risk_level, s.contributing_factors, i)
     ).join('');
 
-    // ── PRIVACY ALERTS ──
     const privContainer = document.getElementById('privacy-alert-list');
     if (privAlerts.length === 0) {
       privContainer.innerHTML = '<div style="text-align:center;color:var(--text-dim);font-family:Share Tech Mono,monospace;padding:40px;">No privacy alerts detected.</div>';
     } else {
-      // Deduplicate by rule_id + entity, take first occurrence
       const seen = new Set();
       const unique = privAlerts.filter(a => {
         const key = a.rule_id + '|' + a.entity;
@@ -692,7 +733,6 @@ async function loadAPIData() {
       privContainer.innerHTML = unique.slice(0, 6).map((a, i) => renderPrivacyAlert(a, i)).join('');
     }
 
-    // ── LIVE THREAT LOG from privacy alerts ──
     const logEl = document.getElementById('threat-log');
     const logLines = privAlerts.slice(0, 8).map(a => {
       const t = a.timestamp ? a.timestamp.slice(11, 19) : '--:--:--';
@@ -709,7 +749,6 @@ async function loadAPIData() {
     });
     logEl.innerHTML = logLines.join('');
 
-    // ── THREAT DISTRIBUTION (real alert counts) ──
     const ruleCount = {'PRIV-001':0,'PRIV-002':0,'PRIV-003':0,'PRIV-004':0,'PRIV-005':0};
     privAlerts.forEach(a => { if(ruleCount[a.rule_id]!==undefined) ruleCount[a.rule_id]++; });
     const maxCount = Math.max(...Object.values(ruleCount), 1);
@@ -728,7 +767,6 @@ async function loadAPIData() {
       if(val) val.textContent = count + ' alerts';
     });
 
-    // ── RADAR — real risk scores as positioned blips ──
     const radarScores = scores.map((s,i) => ({
       score: s.score,
       entity: s.entity,
@@ -738,10 +776,8 @@ async function loadAPIData() {
     }));
     window._radarRealBlips = radarScores;
 
-    // ── LIVE LOG POOL — seed with real events ──
     _realLogPool = privAlerts.slice();
 
-    // ── ATTACK MAP — real entities as source nodes ──
     window._realEntities = scores.map((s, i) => ({
       x: 0.15 + (i * 0.22),
       y: 0.3 + (i % 2) * 0.25,
@@ -749,14 +785,12 @@ async function loadAPIData() {
       score: s.score
     }));
 
-    // Re-apply scroll observer to new elements
     document.querySelectorAll('.risk-card, .alert-item').forEach(el => observer.observe(el));
 
   } catch (err) {
     setApiStatus('err', '⚠ API Offline — run: $env:PYTHONPATH="."; uvicorn src.dashboard.api:app --reload');
     console.error('API error:', err);
 
-    // Fallback values
     document.getElementById('count1').textContent = '—';
     document.getElementById('count2').textContent = '—';
     document.getElementById('count3').textContent = '—';
@@ -764,13 +798,9 @@ async function loadAPIData() {
   }
 }
 
-// Auto-refresh every 30 seconds
 loadAPIData();
 setInterval(loadAPIData, 30000);
 
-// ════════════════════════════════════════════
-//  CURSOR
-// ════════════════════════════════════════════
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -782,9 +812,6 @@ document.querySelectorAll('a,button,.glass-card,.arch-node,.team-card,.defense-c
   el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';cursor.style.background='var(--cyan)';ring.style.width='36px';ring.style.height='36px';});
 });
 
-// ════════════════════════════════════════════
-//  HERO 3D GLOBE
-// ════════════════════════════════════════════
 (function(){
   const canvas=document.getElementById('hero-canvas');
   const scene=new THREE.Scene();
@@ -857,9 +884,6 @@ document.querySelectorAll('a,button,.glass-card,.arch-node,.team-card,.defense-c
   });
 })();
 
-// ════════════════════════════════════════════
-//  BACKGROUND PARTICLES
-// ════════════════════════════════════════════
 (function(){
   const c=document.getElementById('particle-canvas');const ctx=c.getContext('2d');
   c.width=window.innerWidth;c.height=window.innerHeight;
@@ -874,9 +898,6 @@ document.querySelectorAll('a,button,.glass-card,.arch-node,.team-card,.defense-c
   window.addEventListener('resize',()=>{c.width=window.innerWidth;c.height=window.innerHeight;});
 })();
 
-// ════════════════════════════════════════════
-//  SCROLL ANIMATIONS
-// ════════════════════════════════════════════
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -895,9 +916,6 @@ const observer=new IntersectionObserver(entries=>{
 },{threshold:.1});
 document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.defense-card,.tech-item,.team-card,.algo-card,.soc-dashboard').forEach(el=>observer.observe(el));
 
-// ════════════════════════════════════════════
-//  NEURAL NETWORK
-// ════════════════════════════════════════════
 (function(){
   const c=document.getElementById('nn-canvas');if(!c)return;
   const ctx=c.getContext('2d');
@@ -938,9 +956,6 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   window.addEventListener('resize',()=>{resize();nodes.length=0;lCounts.forEach((n,li)=>{for(let i=0;i<n;i++){nodes.push({x:(li/(lCount-1))*(c.width-80)+40,y:(i/(n-1||1))*(c.height-40)+20,layer:li,idx:i,n});}});});
 })();
 
-// ════════════════════════════════════════════
-//  ANOMALY GRAPH
-// ════════════════════════════════════════════
 (function(){
   const c=document.getElementById('anomaly-canvas');if(!c)return;
   const ctx=c.getContext('2d');
@@ -965,9 +980,6 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   draw();window.addEventListener('resize',()=>{resize();draw();});
 })();
 
-// ════════════════════════════════════════════
-//  RADAR
-// ════════════════════════════════════════════
 (function(){
   const c=document.getElementById('radar-canvas');if(!c)return;
   const ctx=c.getContext('2d');
@@ -977,17 +989,14 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   let angle=0;
   function draw(){
     ctx.clearRect(0,0,c.width,c.height);
-    // Rings
     [.2,.4,.6,.8,1].forEach(f=>{ctx.beginPath();ctx.arc(cx2,cy2,r*f,0,Math.PI*2);ctx.strokeStyle=`rgba(0,245,255,${.08+f*.04})`;ctx.lineWidth=1;ctx.stroke();});
     ctx.strokeStyle='rgba(0,245,255,.1)';
     ctx.beginPath();ctx.moveTo(cx2,cy2-r);ctx.lineTo(cx2,cy2+r);ctx.stroke();
     ctx.beginPath();ctx.moveTo(cx2-r,cy2);ctx.lineTo(cx2+r,cy2);ctx.stroke();
-    // Sweep
     ctx.save();ctx.translate(cx2,cy2);
     for(let i=0;i<40;i++){const a2=angle-i*.06;const opacity=Math.max(0,(40-i)/40)*.3;ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,r,a2-.03,a2+.03);ctx.closePath();ctx.fillStyle=`rgba(0,245,255,${opacity})`;ctx.fill();}
     ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(angle)*r,Math.sin(angle)*r);ctx.strokeStyle='rgba(0,245,255,.8)';ctx.lineWidth=1.5;ctx.stroke();
     ctx.restore();
-    // Real entity blips from API
     const blips = window._radarRealBlips || [];
     blips.forEach((b,i)=>{
       const bx=cx2+Math.cos(b.angle)*r*b.dist;
@@ -997,14 +1006,11 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
       const glowColor = b.score>=60?'rgba(255,60,172,':'rgba(0,245,255,';
       ctx.beginPath();ctx.arc(bx,by,4+pulse*2,0,Math.PI*2);
       ctx.fillStyle=color;ctx.fill();
-      // Glow ring
       ctx.beginPath();ctx.arc(bx,by,8+pulse*3,0,Math.PI*2);
       ctx.strokeStyle=glowColor+(0.3+pulse*0.3)+')';ctx.lineWidth=1;ctx.stroke();
-      // Entity name label
       ctx.fillStyle='rgba(0,245,255,.7)';ctx.font='8px Share Tech Mono';
       ctx.fillText(b.entity.split('.')[0].toUpperCase(),bx+8,by-2);
     });
-    // Fallback random blips if no real data yet
     if(blips.length===0){
       for(let i=0;i<6;i++){
         const a=i/6*Math.PI*2,d=0.3+i*0.1;
@@ -1018,19 +1024,14 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   draw();window.addEventListener('resize',()=>resize());
 })();
 
-// ════════════════════════════════════════════
-//  ATTACK MAP
-// ════════════════════════════════════════════
 (function(){
   const c=document.getElementById('attack-map-canvas');if(!c)return;
   const ctx=c.getContext('2d');
   function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight||200;}
   resize();
-  // Fixed world city positions
   const cities=[{x:.2,y:.3},{x:.15,y:.55},{x:.48,y:.25},{x:.52,y:.28},{x:.55,y:.22},{x:.72,y:.3},{x:.8,y:.35},{x:.85,y:.55},{x:.6,y:.6},{x:.35,y:.35},{x:.25,y:.28},{x:.18,y:.4}];
   const attacks=[];
   function newAttack(){
-    // Use real entity positions as attack targets when available
     const realEntities = window._realEntities || [];
     const targets = realEntities.length > 0 ? realEntities : cities;
     const s=cities[Math.floor(Math.random()*cities.length)];
@@ -1048,16 +1049,13 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   for(let i=0;i<4;i++)newAttack();setInterval(newAttack,1200);
   function draw(){
     ctx.clearRect(0,0,c.width,c.height);const W=c.width,H=c.height;
-    // Grid
     ctx.strokeStyle='rgba(0,245,255,.04)';ctx.lineWidth=1;
     for(let x=0;x<W;x+=W/8){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
     for(let y=0;y<H;y+=H/4){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-    // City nodes
     cities.forEach(city=>{
       const cx2=city.x*W,cy2=city.y*H;
       ctx.beginPath();ctx.arc(cx2,cy2,3,0,Math.PI*2);ctx.fillStyle='rgba(0,245,255,.8)';ctx.fill();
     });
-    // Real entity nodes — highlighted
     (window._realEntities||[]).forEach(e=>{
       const ex=e.x*W, ey=e.y*H;
       const color = e.score>=35?'#FF3CAC':'#00F5FF';
@@ -1068,7 +1066,6 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
       ctx.fillStyle=color;ctx.font='8px Share Tech Mono';
       ctx.fillText(e.name.split('.')[0].toUpperCase(),ex+8,ey-2);
     });
-    // Attack lines
     attacks.forEach((a,i)=>{
       a.p+=.008;
       const cx2=a.sx*W+(a.tx-a.sx)*W*a.p,cy2=a.sy*H+(a.ty-a.sy)*H*a.p;
@@ -1082,14 +1079,9 @@ document.querySelectorAll('.fade-up,.stat-card,.glass-card,.kc-step,.risk-card,.
   draw();window.addEventListener('resize',()=>resize());
 })();
 
-// ════════════════════════════════════════════
-//  LIVE LOG + CLOCK
-// ════════════════════════════════════════════
 function updateClock(){document.getElementById('dash-time').textContent=new Date().toISOString().slice(11,19)+' UTC';}
 setInterval(updateClock,1000);updateClock();
 
-// Real log entries seeded from API — populated in loadAPIData()
-// Simulated live feed adds new entries every 3s mixed with real events
 let _realLogPool = [];
 const _simEvents=[
   ['BRUTE_FORCE_AUTH','BLOCKED','#00FF88'],['SQL_INJECTION','BLOCKED','#00FF88'],
@@ -1101,7 +1093,6 @@ function addLogLine(){
   const logEl=document.getElementById('threat-log');
   const time=new Date().toISOString().slice(11,19);
   let html='';
-  // 50% chance to show a real event from the pool
   if(_realLogPool.length>0 && Math.random()>0.5){
     const e=_realLogPool[Math.floor(Math.random()*_realLogPool.length)];
     const evtMap={'PRIV-001':'BULK_DOWNLOAD','PRIV-002':'OFF_HOURS_ACCESS','PRIV-003':'NEW_DEVICE_ALERT','PRIV-004':'API_EXTRACTION','PRIV-005':'LATERAL_MOVE'};
@@ -1118,9 +1109,6 @@ function addLogLine(){
 }
 setInterval(addLogLine,2500);
 
-// ════════════════════════════════════════════
-//  SCROLL NAV
-// ════════════════════════════════════════════
 window.addEventListener('scroll',()=>{
   const nav=document.getElementById('navbar');
   nav.style.background=window.scrollY>50?'rgba(5,6,10,.95)':'rgba(5,6,10,.8)';
@@ -1129,9 +1117,6 @@ window.addEventListener('scroll',()=>{
   sections.forEach((id,i)=>{const el=document.getElementById(id);if(el){const rect=el.getBoundingClientRect();dots[i]?.classList.toggle('active',rect.top<=200&&rect.bottom>200);}});
 });
 
-// ════════════════════════════════════════════
-//  GSAP
-// ════════════════════════════════════════════
 if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   gsap.registerPlugin(ScrollTrigger);
   gsap.from('.hero-title',{y:60,opacity:0,duration:1.2,ease:'power3.out',delay:.3});

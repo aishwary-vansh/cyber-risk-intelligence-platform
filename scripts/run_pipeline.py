@@ -5,7 +5,13 @@ Main Pipeline Runner
 
 import argparse
 import json
+import sys
+import os
 from pathlib import Path
+
+# Ensure project root is always in Python path regardless of how script is called
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from loguru import logger
 
 from src.ingestion.log_parser import LogParser
